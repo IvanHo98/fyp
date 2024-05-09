@@ -1,0 +1,109 @@
+[
+	{
+      "question": "這裏是哪一個區?",
+      "type": "multiple_choice",
+      "answers": ["A) 荃灣區","B) 葵青區","C) 油尖旺區","D) 灣仔區"],
+      "correct_answer": "B) 葵青區"
+    },
+	{
+      "question": "今天是何年?",
+      "type": "multiple_choice",
+      "answers": ["A) 2022","B) 2023","C) 2024","D) 2025"],
+      "correct_answer": "C) 2024"
+    },
+	{
+      "question": "近年全球最嚴重的疾病?",
+      "type": "multiple_choice",
+      "answers": ["A) 流感", "B) COVID-19", "C) 傷風", "D) 感冒"],
+      "correct_answer": "B) COVID-19"
+    },
+    {
+      "question": "他/她是誰?",
+      "type": "multiple_choice",
+	  "image_file": "./images/chiefexecutive.png",
+      "answers": ["A) 梁振英","B) 鄧炳強","C) 陳茂波","D) 李家超"],
+      "correct_answer": "D) 李家超"
+    },
+    {
+      "question": "辨認以下物件:",
+      "type": "multiple_choice",
+      "image_file": "./images/watch.png",
+      "answers": ["A) 手錶", "B) 電話", "C) 電腦", "D) 耳機"],
+      "correct_answer": "A) 手錶"
+    },
+    {
+      "question": "是否經常忘記東西放在哪裡?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "是否經常在找東西?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "你還記得你的的第一次約會嗎?",
+      "type": "true_false",
+      "correct_answer": "是"
+    },
+    {
+      "question": "你平時搭巴士或者小巴是否會答錯站?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "你是否會擔心鄰居會傷害你或偷你東西?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "你是否會擔心家人送你去老人院嗎?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "你是否有看到房間有其他人嗎?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "你是否會想經常離開家裡嗎?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "你是否會想經常在待家裡嗎?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "你在家中找不到東西時是否會生氣嗎?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "你在夜晚時會經常外出嗎?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "你在吃飯時是否需要人協助嗎?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "如果你之前會煮飯，你現在是否還會煮飯嗎?",
+      "type": "true_false",
+      "correct_answer": "是"
+    },
+    {
+      "question": "你是否會花費大量時間在選擇衣服上嗎?",
+      "type": "true_false",
+      "correct_answer": "否"
+    },
+    {
+      "question": "你是否會經常打錯電話或send錯whatsapp給其他人嗎?",
+      "type": "true_false",
+      "correct_answer": "否"
+    }
+  ]

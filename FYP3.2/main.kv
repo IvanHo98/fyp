@@ -1,0 +1,263 @@
+#:import os os
+
+<Label, TextInput, ToggleButton, Button>:
+    font_name: os.path.join('font', 'Droid-Sans-Fallback', 'DroidSansFallback.ttf')
+    font_size: '28sp'
+
+<Popup>:
+    size_hint: None, None
+    size: 550, 300
+
+<AppManager>:
+    UserInfo:
+        name: "userinfo"
+    MainScreen:
+        name: "main"
+    ReadyScreen:
+        name: "ready"
+    QuizScreen:
+        name: "quiz"
+    ResultScreen:
+        name: "result"
+    DisplayScreen:
+        name: "display"
+    MusicSelect:
+        name: "music"
+    FacePhoto:
+        name: "cam"
+    
+
+<UserInfo>:
+    Image:
+        source: './images/userback.png'
+        allow_stretch: True
+        keep_ratio: False
+    BoxLayout:
+        orientation: 'vertical'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        size_hint_x: 0.5
+        Label:
+            text: '用户信息界面'
+            font_size: '48sp'
+        BoxLayout:
+            orientation: 'vertical'
+            
+            Label:
+                text: '姓名:'
+                font_size: '48sp'
+            TextInput:
+                id: name
+                hint_text: '按我輸入姓名' 
+                font_size: '34sp'
+        BoxLayout:
+            orientation: 'vertical'
+            
+            Label:
+                text: '年齡:'
+                font_size: '48sp'
+            TextInput:
+                id: age
+                hint_text: '按我輸入(12-100)之間的年齡'
+                input_filter: 'int'
+                input_type: 'number'
+                font_size: '28sp'
+        BoxLayout:
+            orientation: 'horizontal'
+            ToggleButton:
+                id: male
+                group: 'gender'
+                background_normal: './images/male.png'
+                background_down: './images/check.png'
+            ToggleButton:
+                id: female
+                group: 'gender'
+                background_normal: './images/female.png'
+                background_down: './images/check.png'
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                background_normal: './images/reset.png'
+                size: 150,150
+                on_release: 
+                    root.reset()
+            Button:
+                background_normal: './images/enter.png'
+                on_release:
+                    root.next()
+
+<MainScreen>:
+    Image:
+        source: './images/main.jpeg'
+        allow_stretch: True
+        keep_ratio: False
+    BoxLayout:
+        orientation: 'vertical'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        Label:
+            text: '歡迎來到 eCare'
+        Button:
+            background_normal: './images/dementia.png'
+            size_hint: None, None
+            size: 150, 150
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "ready"
+        Label:
+            text: '記憶力測試'
+            color: 0.0, 0.67, 1.0, 1.0
+        Button:
+            background_normal: './images/music.png'
+            size_hint: None, None
+            size: 150, 150
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "music"
+        Label:
+            text: '音樂治療'
+            color: 0.0, 0.67, 1.0, 1.0
+        Button:
+            background_normal: './images/camera.png'
+            size_hint: None, None
+            size: 150, 150
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "cam"
+        Label:
+            text: '面部相片收集'
+            color: 0.0, 0.67, 1.0, 1.0
+
+<ReadyScreen>:
+    Image:
+        source: './images/readyback.png'
+        allow_stretch: True
+        keep_ratio: False
+    BoxLayout:
+        orientation: "vertical"
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        Label:
+            text: '\n\n開始前請閱讀以下規則: \n 1.測試共有20條問題 \n 2. 每條題目作答時長為5秒 \n 3.完成後會自動分析結果 \n 4.如清楚明白 \n  請按√繼續 x返回主選單'
+            halign: 'center'
+            pos_hint: {'center_y': 0.4}
+            font_size: 36
+            color: 0, 0, 0, 1
+        Label:
+            text: '{} 秒後自動開始'.format(str(root.timer))
+            font_size: 36
+            pos_hint: {'center_y': 0.35}
+            color: 0, 0, 0, 1
+        BoxLayout:
+            orientation:'horizontal'
+            Button:
+                background_normal: './images/check.png'
+                on_release: 
+                    root.quiz()
+                size: 200, 200
+                pos_hint:{'y':0.15}
+            Button: 
+                background_normal: './images/cross.png'
+                on_release: 
+                    root.main()
+                size: 200, 200
+                pos_hint:{'y':0.15}
+<QuizScreen>:
+    Image:
+        source: './images/quizback.jpg'
+        allow_stretch: True
+        keep_ratio: False
+    RelativeLayout:
+        Image:
+            source: './images/blackboard.jpeg'
+            keep_ratio: False
+            allow_stretch: True
+            size_hint: 1, 0.6
+            pos_hint: {'top': 1}
+        Label:
+            id: question_label
+            text: ''
+        BoxLayout:
+            orientation:'vertical'
+            id: answer_layout
+
+<ResultScreen>
+    Image:
+        source: './images/resultback.png'
+        keep_ratio: False
+        allow_stretch: True
+    Label:
+        id: result
+        text: ""
+    Button:
+        background_normal: './images/exit.png'
+        size_hint: None, None
+        size: 200, 200
+        pos_hint: {'center_x': 0.5,'center_y': 0.2}
+        on_release:
+            root.main()
+
+<MusicSelect>:
+    Image:
+        source: './images/hall.jpg'
+        keep_ratio: False
+        allow_stretch: True
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+
+        Label:
+            text: '選擇老人的音樂偏好'
+            font_size: 30
+
+        GridLayout:
+            cols: 2
+            spacing: 10
+
+            ToggleButton:
+                text: '古典樂'
+                group: 'music_preference'
+                sound_file: './audio/Mozart.mp3'
+                on_release: root.play_audio(self)
+                id: music_preference
+            ToggleButton:
+                text: '經典港樂'
+                group: 'music_preference'
+                sound_file: './audio/烈燄紅唇.mp3'
+                on_release: root.play_audio(self)
+                id: music_preference
+            ToggleButton:
+                text: '流行港樂'
+                group: 'music_preference'
+                sound_file: './audio/小心地滑.mp3'
+                on_release: root.play_audio(self)
+                id: music_preference
+            ToggleButton:
+                text: '英語經典'
+                group: 'music_preference'
+                sound_file: './audio/SomewhereOvertheRainbow.mp3'
+                on_release: root.play_audio(self)
+                id: music_preference
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+
+            Button:
+                text: '返回'
+                size_hint: 0.5, 0.5
+                on_release: app.root.current = 'main'
+
+            Button:
+                text: '提交'
+                size_hint: 0.5, 0.5
+                background_color: 0.0, 0.67, 1.0, 1.0
+                on_release: 
+                    root.update_user_info(root.ids.music_preference.text)
+                    root.show_popup()
+<FacePhoto>:
+    BoxLayout:
+        orientation: "vertical"
+        Camera:
+            id: camera
+            resolution: (800, 800)
+        Button:
+            text: "Take Photo"
+            size_hint: None, None
+            size: 150, 50
+            pos_hint: {"center_x": 0.5}
+            on_release: root.take_photo(self)

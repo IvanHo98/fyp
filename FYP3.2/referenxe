@@ -1,0 +1,33 @@
+    Image:
+        source: './images/quizback.jpg'
+        allow_stretch: True
+        keep_ratio: False
+    FloatLayout:
+        orientation: "vertical"
+        Image:
+            source: './images/blackboard.jpeg'
+            keep_ratio: False
+            allow_stretch: True
+            size_hint_y: 0.6
+            pos_hint: {'top': 1}
+        Label:
+            text: "Your Question"
+            font_size: 50
+            size_hint: None, None
+            pos_hint: {'center_x': 0.5,'center_y':0.75}
+    BoxLayout:
+        orientation:'horizontal'   
+    Button:
+        background_normal: './images/check.png'
+        size_hint: None, None
+        size: 200,280
+        pos_hint: {'center_x': 0.35, 'y': 0.1}
+        on_release: 
+            app.root.current = "main"
+    Button:
+        background_normal: './images/cross.png'
+        size_hint: None, None
+        size: 200,280
+        pos_hint: {'center_x': 0.65, 'y': 0.1}
+        on_release: 
+            app.root.current = "main"
